@@ -32,7 +32,7 @@
 <script src="/static/js/modernizr-custom-2.8.3.min.js"></script>
 <!--[if lt IE 9]><script src="/static/bower/respond/dest/respond.min.js"></script><![endif]-->
 <!-- /scripts -->
-
+{% block head %}{% endblock head %}
 </head>
 <body>
 
@@ -122,5 +122,6 @@
   </script>
   {% endif %}
 
+  {% block endofpage %}{% endblock endofpage %}
 </body>
 </html>

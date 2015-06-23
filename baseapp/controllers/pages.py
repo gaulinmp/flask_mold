@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import render_template, Blueprint, current_app
+from flask import render_template, Blueprint
 
 blueprint = Blueprint('baseapp', __name__)
 
