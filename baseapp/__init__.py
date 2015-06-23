@@ -18,6 +18,7 @@ def create_app(config_filename):
         ext.init_app(app)
 
     app.register_blueprint(pages.blueprint)
+    pages.blueprint.extra_init(app)
     app.register_blueprint(user.views.blueprint)
 
     app.logger.setLevel(logging.WARNING)

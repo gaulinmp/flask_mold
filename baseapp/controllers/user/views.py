@@ -18,6 +18,9 @@ def load_user(user_id):
     uuser = User().search(user_id=int(user_id))
     return uuser
 
+################################################################################
+####           Routes                                                       ####
+################################################################################
 
 @blueprint.route("/", methods=["GET", "POST"])
 def login():
