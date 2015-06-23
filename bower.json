@@ -11,9 +11,13 @@
     "bower_components"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.0.0",
+    "jquery": "^2.0.0",
     "font-awesome": "^4.0.0",
     "bootstrap": "^3.0.0",
     "respond": "^1.0.0"
+  },
+  "ignored_dependencies":{
+    "polymer": "Polymer/polymer#^1.0.0",
+    "modernizr": "^2.0.0"
   }
 }
