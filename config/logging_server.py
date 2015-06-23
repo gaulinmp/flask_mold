@@ -17,6 +17,7 @@ class Config(object):
     SESSION_LOG_FILE_PATH = os.path.join(APP_DIR, SESSION_LOG_FILENAME)
     BCRYPT_LOG_ROUNDS = 13
     WTF_CSRF_ENABLED = True
+    USE_CDN = True
 
 
 class ProdConfig(Config):
@@ -32,6 +33,7 @@ class DevConfig(Config):
     DB_NAME = 'dev.db'
     SQLALCHEMY_DATABASE_URI = ('sqlite:///' +
                                 os.path.join(Config.PROJECT_ROOT, DB_NAME))
+    USE_CDN = False
 
 
 class TestConfig(Config):
@@ -40,3 +42,4 @@ class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
     BCRYPT_LOG_ROUNDS = 1  # For faster tests
     WTF_CSRF_ENABLED = False  # Allows form testing
+    USE_CDN = False
