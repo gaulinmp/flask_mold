@@ -104,7 +104,8 @@
   <div id="footer">
     <div class="container">
       <br>
-      <p>{{ config.SITE_AUTHOR | default("") }} &copy; All Rights Reserved.</p>
+      <p>{% if config.DEBUG %}<strong>(DEBUG MODE ON)</strong>{% endif %}
+         {{ config.SITE_AUTHOR | default("") }} &copy; All Rights Reserved.</p>
       {% block footer %}{% endblock %}
     </div>
   </div>
