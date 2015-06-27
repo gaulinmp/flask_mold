@@ -11,8 +11,8 @@ bcrypt = Bcrypt()
 from flask_login import LoginManager
 login_manager = LoginManager()
 
-# from flask_sqlalchemy import SQLAlchemy
-# db = SQLAlchemy()
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
 
 # from flask_migrate import Migrate
 # migrate = Migrate()
@@ -23,4 +23,4 @@ login_manager = LoginManager()
 # from flask_debugtoolbar import DebugToolbarExtension
 # debug_toolbar = DebugToolbarExtension()
 
-all_extensions = [bcrypt, login_manager, ]
+all_extensions = [bcrypt, login_manager, db]

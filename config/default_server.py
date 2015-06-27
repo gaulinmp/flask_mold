@@ -24,6 +24,10 @@ class ProdConfig(Config):
     """Production configuration."""
     ENV = 'prod'
     DEBUG = False
+    UPLOAD_KEY = os_env.get('LOGGING_SERVER_UPLOAD_SECRET','')
+    DB_NAME = 'database.db'
+    DBFILE_PATH = os.path.join(Config.APP_DIR, DB_NAME)
+    SQLALCHEMY_DATABASE_URI = ('sqlite:///' + DBFILE_PATH)
 
 
 class DevConfig(Config):
@@ -33,7 +37,11 @@ class DevConfig(Config):
     DB_NAME = 'dev.db'
     SQLALCHEMY_DATABASE_URI = ('sqlite:///' +
                                 os.path.join(Config.PROJECT_ROOT, DB_NAME))
+    DBFILE_PATH = os.path.join(Config.APP_DIR, DB_NAME)
+    SQLALCHEMY_DATABASE_URI = ('sqlite:///' + DBFILE_PATH)
     USE_CDN = False
+    UPLOAD_KEY = 'test'
+    WTF_CSRF_ENABLED = False  # Allows form testing
 
 
 class TestConfig(Config):
