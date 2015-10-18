@@ -8,7 +8,7 @@ Quick Start
 ------------
 #. Clone the repo, or run code similar to `this gist <https://gist.github.com/gaulinmp/c558a8cc9192eeda316d#file-new_flask_from_mold-sh>`_.
 
-#. Install bower resources with: `bower install`, whichs puts them at `baseapp/static/bower/`.
+#. Install bower resources with: ``bower install``, whichs puts them at ``baseapp/static/bower/``.
 
 #. Add pages by:
 
@@ -19,15 +19,13 @@ Quick Start
 
 Run
 ----------------
-```sh
-$ python run.py
-```
+.. code:: sh
+    $ python run.py
 
 Shell
 -----------------
-```sh
-$ python shell.py
-```
+.. code:: sh
+    $ python shell.py
 
 Screenshot
 -----------------
