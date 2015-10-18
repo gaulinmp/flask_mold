@@ -19,12 +19,12 @@ Quick Start
 
 Run
 ----------------
-.. code:: sh
+In shell type:
     $ python run.py
 
 Shell
 -----------------
-.. code:: sh
+In shell type:
     $ python shell.py
 
 Screenshot
