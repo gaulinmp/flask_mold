@@ -7,14 +7,11 @@ os_env = os.environ
 class Config(object):
     SITE_NAME = "Test App"
     SITE_AUTHOR = "Mac Gaulin"
-    SITE_DESCRIPTION = "Test flask site."
+    SITE_DESCRIPTION = "Mold for flask site."
     GOOGLE_ANALYTICS = ''
-    SECRET_KEY = os_env.get('LOGGING_SERVER_SECRET',
-                            'fan;iofasn;oifaxn;axeoihsena;903wyanwop3thjnlej')
+    SECRET_KEY = os_env.get('SECRET_KEY', 'typeyourrandomstringhere')
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # config directory
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
-    SESSION_LOG_FILENAME = 'login.dat'
-    SESSION_LOG_FILE_PATH = os.path.join(APP_DIR, SESSION_LOG_FILENAME)
     BCRYPT_LOG_ROUNDS = 13
     WTF_CSRF_ENABLED = True
     USE_CDN = True
@@ -24,16 +21,21 @@ class ProdConfig(Config):
     """Production configuration."""
     ENV = 'prod'
     DEBUG = False
+    DB_NAME = 'database.db'
+    DBFILE_PATH = os.path.join(Config.APP_DIR, DB_NAME)
+    SQLALCHEMY_DATABASE_URI = ('sqlite:///' + DBFILE_PATH)
 
 
 class DevConfig(Config):
     """Development configuration."""
     ENV = 'dev'
     DEBUG = True
-    DB_NAME = 'dev.db'
-    SQLALCHEMY_DATABASE_URI = ('sqlite:///' +
-                                os.path.join(Config.PROJECT_ROOT, DB_NAME))
     USE_CDN = False
+    UPLOAD_KEY = 'test'
+    WTF_CSRF_ENABLED = False
+    DB_NAME = 'dev.db'
+    DBFILE_PATH = os.path.join(Config.APP_DIR, DB_NAME)
+    SQLALCHEMY_DATABASE_URI = ('sqlite:///' + DBFILE_PATH)
 
 
 class TestConfig(Config):

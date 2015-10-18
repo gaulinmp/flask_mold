@@ -15,7 +15,7 @@ blueprint = Blueprint('user', __name__, url_prefix='/user',
 
 @login_manager.user_loader
 def load_user(user_id):
-    uuser = User().search(user_id=int(user_id))
+    uuser = User.search(user_id=int(user_id))
     return uuser
 
 ################################################################################
@@ -35,7 +35,7 @@ def login():
         form.user.authenticate(is_authentic=True)
         flash("You are logged in.", 'success')
         session['user_id'] = form.user.id
-        return form.redirect('/')
+        return form.redirect(url_for('user.login'))
 
     return render_template("login.html", form=form)
 
@@ -51,13 +51,13 @@ def logout():
 
 @blueprint.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegisterForm(request.form, csrf_enabled=False)
+    form = RegisterForm(request.form)
     if form.validate_on_submit():
         new_user = User.create(username=form.username.data,
-                        email=form.email.data,
-                        password=form.password.data,
-                        active=True)
-        flash('Thank you for registering. You can now log in.', 'success')
+                               email=form.email.data,
+                               password=form.password.data,
+                               active=False) # Gotta be confirmed.
+        flash('Thanks for registering. You may be confirmed later.', 'success')
         return redirect(url_for('baseapp.home'))
     else:
         flash_errors(form)

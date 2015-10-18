@@ -49,15 +49,14 @@ class RegisterForm(RedirectForm):
         initial_validation = super(RegisterForm, self).validate()
         if not initial_validation:
             return False
-        user = User().search(username=self.username.data)
+        user = User.search(username=self.username.data)
         if user:
             self.username.errors.append("Username already registered")
             return False
-        user = User().search(email=self.email.data)
+        user = User.search(email=self.email.data)
         if user:
             self.email.errors.append("Email already registered")
             return False
-
         return True
 
 
@@ -74,7 +73,7 @@ class LoginForm(RedirectForm):
         if not initial_validation:
             return False
 
-        self.user = User().search(username=self.username.data)
+        self.user = User.search(username=self.username.data)
         if not self.user:
             self.username.errors.append('Unknown username')
             return False
