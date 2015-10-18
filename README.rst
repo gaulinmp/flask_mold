@@ -8,9 +8,7 @@ Quick Start
 ------------
 #. Clone the repo, or run code similar to `this gist <https://gist.github.com/gaulinmp/c558a8cc9192eeda316d#file-new_flask_from_mold-sh>`_.
 
-#. Check out sqlalchemy branch if that's your cup of tea (`git pull source sqlalchemy`)
-
-   #. If using sqlalchemy, run the server once to automatically create the DB.
+#. Install bower resources with: `bower install`, whichs puts them at `baseapp/static/bower/`.
 
 #. Add pages by:
 
