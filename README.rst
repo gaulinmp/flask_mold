@@ -19,13 +19,11 @@ Quick Start
 
 Run
 ----------------
-In shell type:
-    $ python run.py
+In shell type: ``$ python run.py`` and open localhost:5000 in your browser.
 
 Shell
 -----------------
-In shell type:
-    $ python shell.py
+In shell type: ``$ python shell.py`` to access all flask methods in a python instance.
 
 Screenshot
 -----------------
